@@ -1,3 +1,10 @@
+#TODO:
+[]Переключение светлой\тёмной темы
+[]Получение списка стран и вывод в UI
+[]Фильтрация стран по поиску
+[]Фильтрация стран по региону
+[]Получение расширенной информации о выбранной стране
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
