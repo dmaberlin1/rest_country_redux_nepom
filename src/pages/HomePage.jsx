@@ -1,19 +1,24 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {selectAllCountries, selectCountriesInfo} from "../store/countries/countries-selectors";
+import {selectAllCountries, selectCountriesInfo, selectVisibleCountries} from "../store/countries/countries-selectors";
 import Controls from "../components/Controls";
 import {loadCountries} from "../store/countries/countries-actions";
 import List from "../components/List";
+import Card from "../components/Card";
+import {selectControls, selectSearch} from "../store/controls/controls-selectors";
 
 const HomePage = () => {
     const navigate=useNavigate()
     const dispatch=useDispatch()
-    const countries=useSelector(selectAllCountries)
+    const countries=useSelector(state=>selectVisibleCountries(state,{search,region}))
     const {status,error,qty}=useSelector(selectCountriesInfo);
+    const {search,region}=useSelector(selectControls)
 
     useEffect(() => {
-        dispatch(loadCountries());
+    if(!qty){
+    dispatch(loadCountries());
+}
     }, [qty,dispatch]);
 
     return (
@@ -42,11 +47,17 @@ const HomePage = () => {
                                 }
                             ]
                         }
+                            return(
+                                <Card
+                                key={c.name}
+                                onClick{()=>navigate(`/country/${c.name}`)}
+                                {...countryInfo}
+                                />
+                            )
                     })}
                 </List>
             )}
             </>
-
     );
 };
 
