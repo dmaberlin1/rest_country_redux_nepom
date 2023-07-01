@@ -1,4 +1,4 @@
-import search from "../../components/Search";
+import search from "../../features/controls/Search";
 
 export const selectCountriesInfo=(state)=>({
     status:state.countries.status,

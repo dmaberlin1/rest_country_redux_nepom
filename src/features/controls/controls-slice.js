@@ -1,0 +1,28 @@
+import {createSlice} from "@reduxjs/toolkit";
+import {clearControls} from "../../store_old_redux/controls/controls-action";
+
+const initialState={
+    search:'',
+    region:'',
+}
+
+const controlsSlice =createSlice ({
+  name:'@@controls',
+    initialState,
+    reducers:{
+      setSearch:(state, action)=>{
+          state.search=action.payload
+      },
+      setRegion:(state, action)=>{
+          state.region=action.payload;
+        },
+        clearControls:()=>initialState,
+    }
+});
+
+export const {setSearch,clearControls,setRegion}=controlsSlice.actions;
+export const controlsReducer=controlsSlice.reducer;
+
+export const selectSearch=(state)=>state.controls.search;
+export const selectRegion=(state)=>state.controls.region;
+export const selectControls=(state)=>state.controls;

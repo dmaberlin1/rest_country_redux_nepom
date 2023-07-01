@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
 import {useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
-import {selectAllCountries, selectCountriesInfo, selectVisibleCountries} from "../store/countries/countries-selectors";
-import Controls from "../components/Controls";
-import {loadCountries} from "../store/countries/countries-actions";
+import {selectAllCountries, selectCountriesInfo, selectVisibleCountries} from "../store_old_redux/countries/countries-selectors";
+import Controls from "../features/controls/Controls";
+import {loadCountries} from "../store_old_redux/countries/countries-actions";
 import List from "../components/List";
 import Card from "../components/Card";
-import {selectControls, selectSearch} from "../store/controls/controls-selectors";
+import {selectControls, selectSearch} from "../store_old_redux/controls/controls-selectors";
 
 const HomePage = () => {
     const navigate=useNavigate()
