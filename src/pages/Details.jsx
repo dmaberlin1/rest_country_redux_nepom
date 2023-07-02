@@ -4,7 +4,7 @@ import {IoArrowBack} from "react-icons/io5";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCurrentCountry} from "../store_old_redux/details/details-selectors";
 import {Button} from "../components/Button";
-import Info from "../components/Info";
+import Info from "../features/details/Info";
 import {clearDetails, loadCountryByName} from "../store_old_redux/details/details-actions";
 
 const Details = () => {
